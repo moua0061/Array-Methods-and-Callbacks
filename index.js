@@ -85,9 +85,15 @@ hint: the strings returned need to exactly match the string in step 4.
 //use map(), use index & item
 function getWinnersByYear(array, getYearsCb, getWinnersCb){
     /* code here */
-   
+    const winners = getWinnersCb(array, getFinals);
+    const year = getYearsCb(array, getFinals);
+    const yearWinners = winners.map(function(item, index){
+    return `In ${year[index]}, ${item} won the world cup!`
+    });
+    return yearWinners;
 } 
 
+console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 
 
