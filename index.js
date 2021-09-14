@@ -47,13 +47,12 @@ Use the higher-order function called getYears to do the following:
 
 function getYears(arr, getFinalsCb) {
     /* code here */
-    const getFinalsYear = [];
-    arr.forEach(function(item){
-        getFinalsYear.push(item.Year);
+    const getFinalsYear = getFinalsCb(arr).map(function(item){
+        return item.Year;
     });
     return getFinalsYear;
 }
-console.log(getYears(fifaData));
+console.log(getYears(fifaData, getFinals));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -88,10 +87,13 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 //use map(), use index & item
-function getWinnersByYear(array, getYearsCb, getWinnersCb) {
+function getWinnersByYear(array, getYearsCb, getWinnersCb){
     /* code here */
-}
+    const winner = [];
+    
+} 
 
+console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
