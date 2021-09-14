@@ -64,18 +64,14 @@ Use the higher-order function getWinners to do the following:
 //don't worry about the OT
 function getWinners(array, getFinalsCb) {
     /* code here */
-    const winners = [];
-    array.filter(function(item){
-        if (item['Home Team Goals'] > item['Away Team Goals']) {
-            winners.push(item['Home Team Name']);
-        } else {
-            winners.push(item['Away Team Name']);
-        }
+    const winners = getFinalsCb(array).map(function(item){
+        return item['Home Team Goals'] > item['Away Team Goals'] ? 
+        item['Home Team Name'] : item['Away Team Name']
     });
     return winners;
 }
 
-console.log(getWinners(fifaData)); 
+console.log(getWinners(fifaData,getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -89,11 +85,10 @@ hint: the strings returned need to exactly match the string in step 4.
 //use map(), use index & item
 function getWinnersByYear(array, getYearsCb, getWinnersCb){
     /* code here */
-    const winner = [];
-    
+   
 } 
 
-console.log(getWinnersByYear(fifaData, getYears, getWinners));
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
